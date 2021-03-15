@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SnakeController : MonoBehaviour
 {
@@ -60,6 +61,11 @@ public class SnakeController : MonoBehaviour
 
             var bone = Instantiate(bonePrefab);
             Tails.Add(bone.transform);
+        }
+
+        if(other.gameObject.tag == "Enemy")
+        {
+            SceneManager.LoadScene(0);
         }
     }
 }
